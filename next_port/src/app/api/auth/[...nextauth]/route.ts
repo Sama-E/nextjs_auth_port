@@ -17,7 +17,7 @@ const handler = NextAuth({
 				async authorize(credentials, req) {
 				// Add logic here to look up the user from the credentials supplied
 				// const user = { id: "1", name: "J Smith", email: "jsmith@example.com" }
-				const res = await fetch ("/api/login", { 
+				const res = await fetch ("http://localhost:3000/api/login", { 
 					method: "POST",
 					headers:{
 						"Content-Type": "application/json",
@@ -40,9 +40,11 @@ const handler = NextAuth({
 
 						// You can also Reject this callback with an Error thus the user will be sent to the error page with the error message as a query parameter
 				}
-			}
-		})
-	]
+			},
+		}),
+	],
+	//JWT 
+
 })
 
 export { handler as GET, handler as POST };
